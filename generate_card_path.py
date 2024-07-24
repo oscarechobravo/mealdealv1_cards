@@ -5,7 +5,8 @@ from natsort import natsorted
 import csv
 
 
-root = './cards/'
+#root = './cards/'
+root = './cards-caleb/'
 pattern = "*.png"
 url = "https://oscarechobravo.github.io/mealdealv1_cards/"
 
@@ -13,8 +14,8 @@ header = ["label","image","item-count","item-key"]
 
 for path, subdirs, files in os.walk(root):
     subdirs.sort()
-    subdeck = (path.replace("./cards/",""))
-    with open((subdeck + 'cards_v1.csv'), 'w', newline='') as csvfile:
+    subdeck = (path.replace("./cards-caleb/",""))
+    with open((root + subdeck + 'cards_v1.csv'), 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         spamwriter.writerow(header)
         for name in natsorted(files):
