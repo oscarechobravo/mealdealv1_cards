@@ -20,7 +20,7 @@ for path, subdirs, files in os.walk(root):
         spamwriter.writerow(header)
         for name in natsorted(files):
             if fnmatch(name, pattern):
-                fname = (os.path.join(url,os.path.join(path, name)).replace("/./","/"))
+                fname = (os.path.join(url,os.path.join(path, name)).replace("/./","/").replace("\\","/"))
                 
                 spamwriter.writerow([name, fname, 0, name])
 
